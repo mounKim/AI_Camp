@@ -39,12 +39,6 @@ test_loader = torch.utils.data.DataLoader(test, batch_size = 256, shuffle = True
 model = MultiLayer()
 loss = torch.nn.CrossEntropyLoss()
 optim = torch.optim.Adam(model.parameters(), lr = 0.001)
-
-x_numpy = np.random.rand(2, 784)
-x_torch = torch.from_numpy(x_numpy).float()
-y_torch = model(x_torch)
-y_numpy = y_torch.detach().cpu().numpy()
-
 '''
 np.set_printoptions(precision = 3)
 for i, (name, x) in enumerate(model.named_parameters()):
